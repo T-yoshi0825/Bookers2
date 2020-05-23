@@ -1,0 +1,38 @@
+
+  <%= render 'users/list', users: @user, books: @book %>
+
+        <div class="col-xs-9">
+          <h2>Book detail</h2>
+            <table class="table table-hover table-inverse">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                  <tr>
+                    <td>
+                      <%= link_to user_path(@user) do %>
+                      <%= attachment_image_tag @user, :profile_image, size: "100x100", format: 'jpeg', fallback: "no_image.jpg" %>
+                    <br>
+                    <%= @user.name %>
+                  　<% end %>
+                    </td>
+                    <td>
+                      <%= link_to book_path(@user) do %>
+                      <%= @show_book.title %>
+                      <% end %>
+                      </td>
+                    <td><%= @show_book.body %></td>
+                    <% if @user == current_user %>
+                      <td><%= link_to "Edit", edit_book_path(@show_book), class: "btn btn-success" %></td>
+                      <td><%= link_to "Destroy", book_path(@show_book), class: "btn btn-danger", method: :delete, :confirm => 'Are you sure?' %></td>
+                    <% end %>   
+                  </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+  </div>

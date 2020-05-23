@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <title></title>
+    </head>
+      <body>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-2"></div>
+          <div class="col-sm-8">
+            <p class="text-center"><h1>ようこそ <span class="glyphicon glyphicon-book" aria-hidden="true"></span>Bookersへ！</h1></p>
+            <p class="text-center"><strong>Bookers</strong> では、様々な書籍に関するあなたの意見や<br>
+            印象を共有し交換することができます</p>
+            <section>
+              <%=link_to'Log in', new_user_session_path, class: "btn btn-success btn-block" %>
+            </section>
+            <section>
+              <%=link_to'Sign Up', new_user_registration_path,  class: "btn btn-primary btn-block" %>
+            </section>
+          </div>
+          <div class="col-xs-2"></div>
+        </div>
+      </div>
+      </body>
+</html>
