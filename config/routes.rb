@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   get '/home/about', to: 'books#about'
   resources :users, only: [:new, :index, :show, :edit, :update]
   # resources :books, only: [:new, :create, :index, :show, :edit, :update, :destroy]
-  resources :books, execpt: [:new]
+  resources :books, execpt: [:new] do 
+  	resources :book_comments, only: [:create, :destroy]
+  	resource :favorites, only: [:create, :destroy]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

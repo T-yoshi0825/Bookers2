@@ -29,6 +29,8 @@ before_action :correct_user, only: [:edit, :update]
   	  @show_book = Book.find(params[:id])
       @user = @show_book.user
       @book = Book.new
+      @book_comment = BookComment.new
+      @book_comments = @show_book.book_comments
   end
 
   def edit

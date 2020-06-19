@@ -30,6 +30,23 @@
                       <% end %>
                     </td>
                     <td><%=book.body %></td>
+                     <% if book.favorited_by?(current_user) %>
+                      <td>
+                        <%= link_to book_favorites_path(book, redirect_id: 0),method: :delete do %>
+                          <span class="glyphicon glyphicon-heart-empty" aria-hidden="true" style="color: red;"></span>
+                         <%= book.favorites.count %>
+                        <% end %>
+                      </td>
+
+                      <% else %>
+                      <td>
+                        <%= link_to book_favorites_path(book, redirect_id: 0),method: :post do %>
+                        <span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
+                        <%= book.favorites.count %>
+                        <% end %>
+                      </td>
+                     <% end %>
+                    <td><h6>コメント数：<%= book.book_comments.count %></h6><td>
                   </tr>
                 <% end %>
                 <%= paginate @books %>
