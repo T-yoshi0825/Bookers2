@@ -42,5 +42,4 @@ before_action :correct_user, only: [:edit, :update]
         redirect_to user_path(current_user.id)
      end
     end
-
 end
